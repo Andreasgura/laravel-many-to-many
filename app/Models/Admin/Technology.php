@@ -6,11 +6,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 
-
-class Project extends Model
+class Technology extends Model
 {
     use HasFactory;
-    protected $guarded = [];
+    protected $guarded = [''];
+
     public static function generateSlug($className, $string)
     {
         $count = 1;
@@ -21,13 +21,8 @@ class Project extends Model
         }
         return $slug;
     }
-
-    public function type()
+    public function projects()
     {
-        return $this->belongsTo(Type::class);
-    }
-    public function technologies()
-    {
-        return $this->belongsToMany(Technology::class);
+        return $this->belongsToMany(Project::class);
     }
 }

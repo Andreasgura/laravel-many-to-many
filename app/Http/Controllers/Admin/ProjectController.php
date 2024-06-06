@@ -7,6 +7,7 @@ use App\Models\Admin\Project;
 use App\Http\Requests\Auth\StoreProjectRequest;
 use Illuminate\Support\Facades\Storage;
 use App\Models\Admin\Type;
+use App\Models\Admin\Technology;
 
 class ProjectController extends Controller
 {
@@ -24,8 +25,9 @@ class ProjectController extends Controller
      */
     public function create()
     {
+        $technologies = Technology::all();
         $types = Type::all();
-        return view('admin.projects.create', compact('types'));
+        return view('admin.projects.create', compact('types','technologies'));
     }
 
     /**

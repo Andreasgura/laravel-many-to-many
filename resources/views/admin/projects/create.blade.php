@@ -53,6 +53,16 @@
       </select>
     </div>
 
+    <div class="mb-3">
+      <div class="form-check">
+        @foreach ($technologies as $technology)
+        <input class="form-check-input" type="checkbox" value="{{ $technology->id }}" id="flexCheckDefault" name="technologies[]">
+        <label class="form-check-label" for="flexCheckDefault">
+          {{ $technology->name }}
+        </label>
+      </div>
+      @endforeach
+    </div>
     <button type="submit" class="btn btn-primary">Crea</button>
     <button type="reset" class="btn btn-secondary">Cancella</button>
   </form>
