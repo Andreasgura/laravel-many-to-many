@@ -4,7 +4,7 @@
 
     <h1>{{ $project->title }}</h1>
     <div class="mb-3 h2" >
-       Linguaggio utilizzato: {{$project->type->name}}
+       Linguaggio utilizzato: {{$project->type? $project->type->name : 'nessun linguaggio presente'}} 
     </div>
     <p>{{ $project->description }}</p>
     <div >
