@@ -9,7 +9,7 @@ use Illuminate\Support\Str;
 class Technology extends Model
 {
     use HasFactory;
-    protected $guarded = [''];
+    protected $guarded = [];
 
     public static function generateSlug($className, $string)
     {

@@ -36,6 +36,7 @@ class ProjectController extends Controller
     public function store(StoreProjectRequest $request, Project $project)
     {
         $form_data = $request->validated();
+        
         $form_data['slug'] = Project::generateSlug(Project::class, $form_data['title']);
         if ($request->hasFile('image')) {
             //dd($request->image);
@@ -47,8 +48,12 @@ class ProjectController extends Controller
             $form_data['screenshot'] = $path;
             //dd($form_data);
         }
-
-        $project->create($form_data);
+        
+        $project = Project::create($form_data);
+        // dd($project->id);
+        if ($request->has('technologies')) {
+            $project->technologies()->attach($request->technologies);
+        }
              return redirect()->route('admin.projects.index')->with('message', 'Nuovo progetto creato');
 
     }

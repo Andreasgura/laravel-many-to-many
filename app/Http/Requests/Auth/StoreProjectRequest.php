@@ -27,7 +27,8 @@ class StoreProjectRequest extends FormRequest
             "screenshot"=> "image|max:200",
             "link_github"=> "required|url|max:200",
             "link_website"=> "required|url|max:200",
-            "type_id"=> "nullable|exists:types,id"
+            "type_id"=> "nullable|exists:types,id",
+            "technologies"=> "nullable|exists:technologies,id",
         ];
     }
 }
