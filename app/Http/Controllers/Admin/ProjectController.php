@@ -33,7 +33,7 @@ class ProjectController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreProjectRequest $request, Project $project)
+    public function store(StoreProjectRequest $request)
     {
         $form_data = $request->validated();
         
@@ -71,7 +71,9 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-        //
+        $technologies = Technology::all();
+        $types = Type::all();
+        return view('admin.projects.edit', compact('project','types','technologies'));
     }
 
     /**
@@ -79,7 +81,7 @@ class ProjectController extends Controller
      */
     public function update(StoreProjectRequest $request, Project $project)
     {
-        //
+        
     }
 
     /**
